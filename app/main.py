@@ -4,8 +4,6 @@ from app.routes import assets
 
 from app.database import engine, Base
 
-app = FastAPI(title="Asset Manager API")
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
