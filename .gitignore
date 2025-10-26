@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+
+# Virtual Environment
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# FastAPI
+.env
+
