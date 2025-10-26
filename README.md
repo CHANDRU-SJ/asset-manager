@@ -39,6 +39,8 @@ asset_manager/
 │   └── __init__.py
 │
 ├── reports/                 # Generated PDF files (outside the app folder)
+├── database.sql             # database schema
+├── AssetManager.postman_collection.json # postman collection
 ├── .env                     # Environment configuration
 └── README.md
 ```
@@ -69,7 +71,31 @@ venv\Scripts\activate # Windows
 pip install -r requirements.txt
 ```
 
----
+### Database Setup
+- Create the database (if not exists):
+```
+mysql -u {username} -p -e "CREATE DATABASE {db name};"
+```
+    You will be prompted to enter your password {password}.
+
+- Import the schema:
+
+`mysql -u {username} -p {db name} < database.sql`
+
+     {username} → your MySQL username
+     {password} → your MySQL password (you’ll be prompted interactively)
+
+- database.sql
+```
+CREATE TABLE assets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    purchase_date DATE NOT NULL,
+    serial_number VARCHAR(255) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
 ### 🔑 Environment Configuration
 
@@ -138,6 +164,24 @@ Filenames include timestamps, e.g.:
 ```
 ---
 
+### API Testing (Postman)
+
+- Open Postman.
+- Import the provided Postman collection (`AssetManager.postman_collection.json`).
+
+- Update the environment variable for base_url:
+`http://127.0.0.1:8000`
+
+You can now test APIs like:
+```
+GET /assets → List all assets
+POST /assets → Create a new asset
+GET /assets → Get an asset
+PUT /assets/{id} → Update an asset
+DELETE /assets/{id} → Delete an asset
+GET /assets/report/pdf -> Generate PDF report
+```
+---
 ## 🧠 Design Highlights
 
 ✅ Async DB queries for scalability  

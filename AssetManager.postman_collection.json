@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "80968249-c802-4cdc-841f-ec3d5a8a23b4",
+		"name": "Asset Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36803249"
+	},
+	"item": [
+		{
+			"name": "create asset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Macbook Pro\",\r\n  \"category\": \"Laptop\",\r\n  \"purchase_date\": \"2025-10-26\",\r\n  \"serial_number\": \"Macbook123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/assets/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"assets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update asset",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Macbook M2 Pro\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/assets/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"assets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list assets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Macbook Pro\",\r\n  \"category\": \"Laptop\",\r\n  \"purchase_date\": \"2025-10-26\",\r\n  \"serial_number\": \"Macbook123\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/assets/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"assets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch asset",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Macbook M2 Pro\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/assets/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"assets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate report",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Macbook Pro\",\r\n  \"category\": \"Laptop\",\r\n  \"purchase_date\": \"2025-10-26\",\r\n  \"serial_number\": \"Macbook123\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/assets/report/pdf/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"assets",
+						"report",
+						"pdf",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove asset",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Macbook M2 Pro\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/assets/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"assets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
