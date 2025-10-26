@@ -52,7 +52,7 @@ asset_manager/
 ### 1️⃣ Clone the repository
 
 ```
-git clone [https://github.com/CHANDRU-SJ/asset-manager.git](https://github.com/CHANDRU-SJ/asset-manager)
+git clone https://github.com/CHANDRU-SJ/asset-manager.git
 cd asset-manager
 ```
 ### 2️⃣ Setup environment
