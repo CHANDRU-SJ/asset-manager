@@ -76,21 +76,26 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 ```
 .env
-App
-APP_NAME=Asset Manager
-APP_ENV=development
-REPORTS_DIR=reports
+# -------------------------------
+# Database configuration
+# -------------------------------
+DATABASE_URL=mysql+aiomysql://{username}:{password}@{host}:{port}/{db_name}
+TEST_DATABASE_URL=mysql+aiomysql://{username}:{password}@{host}:{port}/{db_name}
 
-Database
-DATABASE_URL=postgresql+asyncpg://username:password@localhost:5432/assetdb
+# -------------------------------
+# Reports directory
+# -------------------------------
+# REPORTS_DIR=./reports
 
-Logging
-LOG_LEVEL=info
+# -------------------------------
+# PDF report settings
+# -------------------------------
+PDF_TITLE=Assets Report
 ```
 
-uvicorn app.main:app --reload
+### Run
+`uvicorn app.main:app --reload`
 
-text
 
 **API available at:**  
 `👉 http://127.0.0.1:8000`

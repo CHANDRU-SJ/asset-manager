@@ -12,17 +12,17 @@ from app.utils.pdf_generator import generate_table_pdf
 
 router = APIRouter(prefix="/assets", tags=["assets"])
 
-@router.post('/assets/', response_model=AssetOut)
+@router.post('/', response_model=AssetOut)
 async def create_asset(asset: AssetCreate, db: AsyncSession = Depends(get_db)):
     return await create_asset_db(db, asset)
 
 
-@router.get('/assets/', response_model=list[AssetOut])
+@router.get('/', response_model=list[AssetOut])
 async def list_assets(db: AsyncSession = Depends(get_db)):
     return await list_assets_db(db)
 
 
-@router.get('/assets/{asset_id}', response_model=AssetOut)
+@router.get('/{asset_id}', response_model=AssetOut)
 async def get_asset(asset_id: int, db: AsyncSession = Depends(get_db)):
     asset = await get_asset_db(db, asset_id)
     if not asset:
@@ -30,7 +30,7 @@ async def get_asset(asset_id: int, db: AsyncSession = Depends(get_db)):
     return asset
 
 
-@router.put('/assets/{asset_id}', response_model=AssetOut)
+@router.put('/{asset_id}', response_model=AssetOut)
 async def update_asset(asset_id: int, payload: AssetUpdate = Body(..., embed=False), db: AsyncSession = Depends(get_db)):
     updated = await update_asset_db(db, asset_id, payload.model_dump(exclude_unset=True))
     if not updated:
@@ -38,7 +38,7 @@ async def update_asset(asset_id: int, payload: AssetUpdate = Body(..., embed=Fal
     return updated
 
 
-@router.delete('/assets/{asset_id}')
+@router.delete('/{asset_id}')
 async def delete_asset(asset_id: int, db: AsyncSession = Depends(get_db)):
     ok = await delete_asset_db(db, asset_id)
     if not ok:
@@ -46,7 +46,7 @@ async def delete_asset(asset_id: int, db: AsyncSession = Depends(get_db)):
     return {"status": "deleted"}
 
 
-@router.get('/assets/report/pdf')
+@router.get('/report/pdf')
 async def assets_report_pdf(background_tasks: BackgroundTasks, db: AsyncSession = Depends(get_db)):
     assets = await list_assets_db(db)
     
